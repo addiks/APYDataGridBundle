@@ -14,6 +14,7 @@ namespace APY\DataGridBundle\Grid;
 
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
+use Traversable;
 
 class GridManager implements \IteratorAggregate, \Countable
 {
@@ -37,12 +38,12 @@ class GridManager implements \IteratorAggregate, \Countable
         $this->grids = new \SplObjectStorage();
     }
 
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return $this->grids;
     }
 
-    public function count()
+    public function count(): int
     {
         return $this->grids->count();
     }

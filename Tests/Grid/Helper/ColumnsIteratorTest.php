@@ -5,11 +5,11 @@ namespace APY\DataGridBundle\Tests\Grid\Helper;
 use APY\DataGridBundle\Grid\Column\Column;
 use APY\DataGridBundle\Grid\Helper\ColumnsIterator;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class ColumnsIteratorTest extends TestCase
 {
-    /** @var \PHPUnit_Framework_MockObject_MockObject */
-    private $iterator;
+    private MockObject $iterator;
 
     public function testAcceptAnyColumn()
     {

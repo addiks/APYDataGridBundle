@@ -20,21 +20,16 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Class GridBuilderTest.
  */
 class GridBuilderTest extends TestCase
 {
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
-     */
-    private $container;
+    private MockObject $container;
 
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
-     */
-    private $factory;
+    private MockObject $factory;
 
     private $registry;
 
@@ -46,7 +41,7 @@ class GridBuilderTest extends TestCase
     /**
      * {@inheritdoc}
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         //self::bootKernel();
 
@@ -186,7 +181,7 @@ class GridBuilderTest extends TestCase
         $this->assertInstanceOf(Grid::class, $this->builder->getGrid());
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->factory = null;
         $this->builder = null;

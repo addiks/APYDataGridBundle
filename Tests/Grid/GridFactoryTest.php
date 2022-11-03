@@ -19,26 +19,18 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 
 /**
  * Class GridFactoryTest.
  */
 class GridFactoryTest extends TestCase
 {
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
-     */
-    private $container;
+    private MockObject $container;
 
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
-     */
-    private $registry;
+    private MockObject $registry;
 
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
-     */
-    private $builder;
+    private MockObject $builder;
 
     /**
      * @var GridFactory
@@ -159,7 +151,7 @@ class GridFactoryTest extends TestCase
         $this->assertFalse($column->isVisibleForSource());
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $self = $this;
 

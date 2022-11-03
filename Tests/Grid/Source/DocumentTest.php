@@ -20,28 +20,17 @@ use Doctrine\ODM\MongoDB\Query\Query;
 use MongoDB\BSON\Regex;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\DependencyInjection\Container;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class DocumentTest extends TestCase
 {
-    /**
-     * @var Document
-     */
-    private $document;
+    private Document $document;
 
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
-     */
-    private $manager;
+    private MockObject $manager;
 
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
-     */
-    private $odmMetadata;
+    private MockObject $odmMetadata;
 
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
-     */
-    private $metadata;
+    private MockObject $metadata;
 
     public function testConstructedWithDefaultGroup()
     {
@@ -967,7 +956,7 @@ class DocumentTest extends TestCase
         // @todo Don't know how to move on with __clone method on stubs / mocks
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         $name = 'name';
         $this->document = new Document($name);
@@ -1112,12 +1101,7 @@ class DocumentTest extends TestCase
             ->willReturn($fieldMapping);
     }
 
-    /**
-     * @param array $elements
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     */
-    private function mockColumnsIterator(array $elements)
+    private function mockColumnsIterator(array $elements): MockObject
     {
         $colIter = $this->createMock(ColumnsIterator::class);
 
@@ -1150,12 +1134,7 @@ class DocumentTest extends TestCase
         return $colIter;
     }
 
-    /**
-     * @param array $resources
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     */
-    private function mockCursor(array $resources)
+    private function mockCursor(array $resources): MockObject
     {
         $cursor = $this->createMock(Cursor::class);
 
@@ -1188,12 +1167,7 @@ class DocumentTest extends TestCase
         return $cursor;
     }
 
-    /**
-     * @param array $resources
-     *
-     * @return \PHPUnit_Framework_MockObject_MockObject
-     */
-    private function mockHelperCursor(array $resources)
+    private function mockHelperCursor(array $resources): MockObject
     {
         $cursor = $this->createMock(Cursor::class);
 

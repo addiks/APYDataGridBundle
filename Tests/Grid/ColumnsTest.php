@@ -7,6 +7,7 @@ use APY\DataGridBundle\Grid\Columns;
 use APY\DataGridBundle\Grid\Helper\ColumnsIterator;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class ColumnsTest extends TestCase
 {
@@ -210,7 +211,7 @@ class ColumnsTest extends TestCase
     /**
      * @param int $number
      *
-     * @return array|\PHPUnit_Framework_MockObject_MockObject[]|\PHPUnit_Framework_MockObject_MockObject
+     * @return array|array<MockObject>|MockObject
      */
     private function buildColumnMocks($number)
     {
@@ -232,7 +233,7 @@ class ColumnsTest extends TestCase
         return $mocks;
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->authChecker = $this->createMock(AuthorizationCheckerInterface::class);
         $this->columns = new Columns($this->authChecker);

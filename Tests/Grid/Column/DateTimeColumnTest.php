@@ -7,8 +7,9 @@ use APY\DataGridBundle\Grid\Column\DateTimeColumn;
 use APY\DataGridBundle\Grid\Filter;
 use APY\DataGridBundle\Grid\Row;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use PHPUnit\Framework\TestCase;
 
-class DateTimeColumnTest extends \PHPUnit_Framework_TestCase
+class DateTimeColumnTest extends TestCase
 {
     public function testGetType()
     {

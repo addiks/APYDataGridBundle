@@ -4,35 +4,31 @@ namespace APY\DataGridBundle\Tests\Grid\Action;
 
 use APY\DataGridBundle\Grid\Action\RowAction;
 use APY\DataGridBundle\Grid\Row;
+use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\MockObject\MockObject;
 
-class RowActionTest extends \PHPUnit_Framework_TestCase
+class RowActionTest extends TestCase
 {
-    /** @var string */
-    private $title = 'title';
+    private string $title = 'title';
 
     /** @var string */
-    private $route = 'vendor.bundle.controller.route_name';
+    private string $route = 'vendor.bundle.controller.route_name';
 
-    /** @var bool */
-    private $confirm = true;
+    private bool $confirm = true;
 
-    /** @var string */
-    private $target = '_parent';
+    private string $target = '_parent';
 
-    /** @var array */
-    private $attributes = ['foo' => 'foo', 'bar' => 'bar'];
+    /** @var array<string, string> */
+    private array $attributes = ['foo' => 'foo', 'bar' => 'bar'];
 
-    /** @var string */
-    private $role = 'ROLE_FOO';
+    private string $role = 'ROLE_FOO';
 
     /** @var array */
     private $callbacks = [];
 
-    /** @var RowAction */
-    private $rowAction;
+    private RowAction $rowAction;
 
-    /** @var \PHPUnit_Framework_MockObject_MockObject */
-    private $row;
+    private MockObject $row;
 
     public function testSetTitle()
     {
@@ -327,7 +323,7 @@ class RowActionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->rowAction->getEnabled());
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->rowAction = new RowAction(
             $this->title, $this->route, $this->confirm, $this->target, $this->attributes, $this->role

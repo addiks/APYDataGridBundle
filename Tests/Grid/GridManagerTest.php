@@ -8,18 +8,13 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Templating\EngineInterface;
 use Symfony\Component\BrowserKit\Response;
 use Symfony\Component\DependencyInjection\Container;
+use PHPUnit\Framework\MockObject\MockObject;
 
 class GridManagerTest extends TestCase
 {
-    /**
-     * @var GridManager
-     */
-    private $gridManager;
+    private GridManager $gridManager;
 
-    /**
-     * @var \PHPUnit_Framework_MockObject_MockObject
-     */
-    private $container;
+    private MockObject $container;
 
     public function testGetIterator()
     {
@@ -480,7 +475,7 @@ class GridManagerTest extends TestCase
         $this->assertEquals($response, $this->gridManager->getGridManagerResponse($view, $params));
     }
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->container = $this->createMock(Container::class);
         $this->gridManager = new GridManager($this->container);
